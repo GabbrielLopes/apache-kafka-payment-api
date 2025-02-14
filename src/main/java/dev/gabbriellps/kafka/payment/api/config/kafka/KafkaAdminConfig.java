@@ -1,4 +1,4 @@
-package dev.gabbriellps.kafka.payment.api.config;
+package dev.gabbriellps.kafka.payment.api.config.kafka;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

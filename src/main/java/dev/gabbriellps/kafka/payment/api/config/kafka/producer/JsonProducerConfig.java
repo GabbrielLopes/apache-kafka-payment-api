@@ -1,4 +1,4 @@
-package dev.gabbriellps.kafka.payment.api.config;
+package dev.gabbriellps.kafka.payment.api.config.kafka.producer;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.producer.ProducerConfig;
