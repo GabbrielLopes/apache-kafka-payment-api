@@ -1,15 +1,12 @@
 server:
-  port: 8000
+  port: ${PORT:8000}
 
 spring:
   application:
     name: apache-kafka-payment-api
   # Kafka Configuration
   kafka:
-    producer:
-      bootstrap-servers: localhost:29092
-    consumer:
-      bootstrap-servers: localhost:29092
+    bootstrap-servers: ${KAFKA_HOST:localhost:29092}
 
 kafka:
   topic:
