@@ -3,6 +3,7 @@ package dev.gabbriellps.kafka.payment.api.config;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClientConfig;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +19,9 @@ public class KafkaAdminConfig {
 
     private final KafkaProperties properties;
 
+    @Value("kafka.topic.payment.name")
+    private String paymentTopicName;
+
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
@@ -30,7 +34,7 @@ public class KafkaAdminConfig {
     @Bean
     public KafkaAdmin.NewTopics newTopics() {
         return new KafkaAdmin.NewTopics(
-                TopicBuilder.name("payment-topic").partitions(1).build()
+                TopicBuilder.name(paymentTopicName).partitions(1).build()
         );
     }
 

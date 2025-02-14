@@ -9,16 +9,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RequestMapping("/payments")
 @RequiredArgsConstructor
+@RestController
 public class PaymentController {
 
     private final PaymentService paymentService;
 
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<PaymentDTO> payment(@RequestBody PaymentDTO requestDTO) {
         paymentService.sendPayment(requestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
